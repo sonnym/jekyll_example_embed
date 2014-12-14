@@ -22,7 +22,12 @@ module Jekyll
         Liquid::Template.parse(wrapped_content).render!(context)
       end
 
-      "<h4>#{name}</h4><h5>Source</h5>#{highlight}<h5>Result</h5><iframe src=\"#{document.url}\" frameBorder=\"0\"></iframe>"
+      [ "<h4>#{name}</h4>",
+        '<h5>Source</h5>',
+        highlight,
+        '<h5>Result</h5>',
+        %{<iframe src="#{document.url}" frameBorder="0"></iframe>}
+      ].join("\n")
     end
 
     Liquid::Template.register_tag('example_embed', Jekyll::ExampleEmbedTag)
