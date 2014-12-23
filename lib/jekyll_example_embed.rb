@@ -26,8 +26,16 @@ module Jekyll
         '<h5>Source</h5>',
         highlight,
         '<h5>Result</h5>',
-        %{<iframe src="#{document.url}" frameBorder="0"></iframe>}
+        %{<iframe src="#{document.url}" frameBorder="0" onload="#{auto_resize}"></iframe>}
       ].join("\n")
+    end
+
+    private
+
+    def auto_resize
+      ["this.height = this.contentWindow.document.body.scrollHeight + 'px'",
+       "this.width = this.contentWindow.document.body.scrollWidth + 'px'"
+      ].join(';')
     end
 
     Liquid::Template.register_tag('example_embed', Jekyll::ExampleEmbedTag)
