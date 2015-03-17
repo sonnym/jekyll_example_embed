@@ -18,6 +18,7 @@ NB: This plugin will only run on the edge version of Jekyll.
 collections:
   examples:
     output: true
+    render: true
 ```
 
 ## Usage
