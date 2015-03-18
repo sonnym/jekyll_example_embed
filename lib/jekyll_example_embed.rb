@@ -6,9 +6,11 @@ module Jekyll
     end
 
     def render(context)
+      @context = context
+
       lang, name = @example.split('/')
 
-      document = context.registers[:site].collections['examples'].docs.detect do |document|
+      document = collection.docs.detect do |document|
         document.relative_path == "_examples/#{@example}"
       end
 
@@ -31,6 +33,10 @@ module Jekyll
     end
 
     private
+
+    def collection
+      @context.registers[:site].collections['examples']
+    end
 
     def auto_resize
       ["this.height = this.contentWindow.document.body.scrollHeight + 'px'",
