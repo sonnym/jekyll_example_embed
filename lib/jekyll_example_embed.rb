@@ -56,7 +56,10 @@ module Jekyll
         collection: @context.registers[:site].collections['examples']
       }).tap(&:read)
 
-      document.output = Jekyll::Renderer.new(site, document, nil).run
+      document.content.tap do |content|
+        document.output = Jekyll::Renderer.new(site, document, nil).run
+        document.content = content
+      end
 
       document
     end
