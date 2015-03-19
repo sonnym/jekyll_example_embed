@@ -10,6 +10,8 @@ module Jekyll
 
       lang, name = @example.split('/')
 
+      coerce_documents!
+
       document = collection.docs.detect do |document|
         document.relative_path == "_examples/#{@example}"
       end
@@ -34,8 +36,29 @@ module Jekyll
 
     private
 
+    def coerce_documents!
+      collection.files.reduce(collection.docs) do |memo, file|
+        memo << file2doc(file)
+      end
+
+      collection.files.slice!(0, collection.files.length)
+    end
+
     def collection
       @context.registers[:site].collections['examples']
+    end
+
+    def file2doc(file)
+      site = @context.registers[:site]
+
+      document = Jekyll::Document.new(file.path, {
+        site: site,
+        collection: @context.registers[:site].collections['examples']
+      }).tap(&:read)
+
+      document.output = Jekyll::Renderer.new(site, document, nil).run
+
+      document
     end
 
     def auto_resize
