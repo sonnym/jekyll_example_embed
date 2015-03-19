@@ -6,4 +6,6 @@ Gem::Specification.new do |s|
   s.email = 'michaud.sonny@gmail.com'
   s.license = 'MIT'
   s.files = ['lib/jekyll_example_embed.rb']
+
+  s.add_runtime_dependency('jekyll',  '>= 2.3.0')
 end
