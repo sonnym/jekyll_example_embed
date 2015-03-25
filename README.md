@@ -6,8 +6,6 @@ Display the code for and result of an example.
 
 ## Installation
 
-NB: This plugin will only run on the edge version of Jekyll.
-
 1.  Add this line to your application's Gemfile `gem 'jekyll_example_embed'`.
 2.  And then execute `bundle`.
 3.  Add the following to your `_config.yml`: `gems: [jekyll_example_embed]`.
