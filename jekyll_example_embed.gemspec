@@ -7,12 +7,10 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.files = ['lib/jekyll_example_embed.rb']
 
-  s.add_runtime_dependency('jekyll', '>= 2.3')
+  s.add_runtime_dependency('jekyll', '~> 2.3')
 
-  s.add_development_dependency('rake')
-  s.add_development_dependency('pry')
-  s.add_development_dependency('minitest')
-  s.add_development_dependency('bundler')
-
-  s.add_development_dependency('jekyll', '3.0.0.beta2')
+  s.add_development_dependency('rake', '~> 0')
+  s.add_development_dependency('pry', '~> 0')
+  s.add_development_dependency('minitest', '~> 0')
+  s.add_development_dependency('bundler', '~> 0')
 end
