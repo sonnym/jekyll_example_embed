@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.files = ['lib/jekyll_example_embed.rb']
 
-  s.add_runtime_dependency('jekyll', '~> 2.3')
+  s.add_runtime_dependency('jekyll', '~> 3')
 
   s.add_development_dependency('rake', '~> 0')
   s.add_development_dependency('pry', '~> 0')
