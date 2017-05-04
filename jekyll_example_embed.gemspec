@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'jekyll_example_embed'
-  s.version = '0.0.6'
+  s.version = '0.0.7'
   s.summary = 'Embed examples in Jekyll'
   s.author = 'Sonny Michaud'
   s.email = 'michaud.sonny@gmail.com'
