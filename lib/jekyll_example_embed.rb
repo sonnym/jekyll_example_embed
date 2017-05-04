@@ -37,6 +37,12 @@ module Jekyll
     private
 
     def coerce_documents!
+      collection.instance_variable_set(:@filtered_entries, collection.entries.reject do |entry|
+        Pathname.new(collection.directory).join(entry).directory?
+      end)
+
+      collection.read
+
       collection.files.reduce(collection.docs) do |memo, file|
         memo << file2doc(file)
       end
@@ -45,7 +51,9 @@ module Jekyll
     end
 
     def collection
-      @context.registers[:site].collections['examples']
+      original = @context.registers[:site].collections['examples']
+
+      @collection ||= Jekyll::Collection.new(@context.registers[:site], original.label)
     end
 
     def file2doc(file)
@@ -57,7 +65,6 @@ module Jekyll
       }).tap(&:read)
 
       document.content.tap do |content|
-        document.output = Jekyll::Renderer.new(site, document, nil).run
         document.content = content
       end
 
