@@ -8,7 +8,9 @@ module Jekyll
     def render(context)
       @context = context
 
-      lang, name = @example.split('/')
+      name_parts = @example.split('/')
+      lang = name_parts.first
+      name = name_parts.last
 
       coerce_documents!
 
