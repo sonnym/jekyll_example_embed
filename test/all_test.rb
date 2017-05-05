@@ -37,7 +37,7 @@ class AllTest < Minitest::Test
     <<-eos
       <h4>bar.html</h4>
       <h5>Source</h5>
-      <div class="highlight"><pre><code class="language-foo" data-lang="foo">&lt;html&gt;&lt;body&gt;baz&lt;/body&gt;&lt;/html&gt;</code></pre></div>
+      <figure class="highlight"><pre><code class="language-foo" data-lang="foo">&lt;html&gt;&lt;body&gt;baz&lt;/body&gt;&lt;/html&gt;</code></pre></figure>
       <h5>Result</h5>
       <iframe src="/examples/foo/bar.html" frameBorder="0" onload="this.height = this.contentWindow.document.body.scrollHeight + 'px';this.width = this.contentWindow.document.body.scrollWidth + 'px'"></iframe>
     eos
