@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.files = ['lib/jekyll_example_embed.rb']
 
   s.add_runtime_dependency('jekyll', '~> 3')
+  s.add_runtime_dependency('jekyll-octicons', '~> 3')
 
   s.add_development_dependency('rake')
   s.add_development_dependency('pry')
