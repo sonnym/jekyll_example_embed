@@ -1,3 +1,5 @@
+require 'jekyll-octicons'
+
 module Jekyll
   class ExampleEmbedTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
@@ -28,11 +30,12 @@ module Jekyll
         Liquid::Template.parse(wrapped_content).render!(context)
       end
 
+      icon = Liquid::Template.parse('{% octicon link-external %}').render(context)
+
       [ "<h4>#{name}</h4>",
         '<h5>Source</h5>',
         highlight,
-        '<h5>Result</h5>',
-        %{<iframe src="#{document.url}" frameBorder="0" onload="#{auto_resize}"></iframe>}
+        %{<h5><a href="#{document.url}" target="_new">View Result #{icon}</a></h5>}
       ].join("\n")
     end
 
@@ -71,12 +74,6 @@ module Jekyll
       end
 
       document
-    end
-
-    def auto_resize
-      ["this.height = this.contentWindow.document.body.scrollHeight + 'px'",
-       "this.width = this.contentWindow.document.body.scrollWidth + 'px'"
-      ].join(';')
     end
 
     Liquid::Template.register_tag('example_embed', Jekyll::ExampleEmbedTag)
