@@ -2,8 +2,6 @@
 
 Display the code for and result of an example.
 
-![Source and Result](screenshot.png)
-
 ## Installation
 
 1.  Add this line to your application's Gemfile `gem 'jekyll_example_embed'`.
@@ -23,11 +21,6 @@ collections:
 Make separate directories within `_collections/examples` for each language you
 would like to prcoess. The directory is used to highlight the code therein,
 and, as such, is necessary for proper output.
-
-The example itself will be rendered in an iframe, giving it a separate
-execution context from the rest of the page. This will allow multiple examples
-to be displayed on the same page, even if they are progressions on a theme and
-contain duplicate variables.
 
 ## Contributing
 
