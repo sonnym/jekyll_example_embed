@@ -32,10 +32,12 @@ module Jekyll
 
       icon = Liquid::Template.parse('{% octicon link-external %}').render(context)
 
-      [ "<h4>#{name}</h4>",
+      [ '<section class="example-embed">',
+        "<h4>#{name}</h4>",
         '<h5>Source</h5>',
         highlight,
-        %{<h5><a href="#{document.url}" target="_new">View Result #{icon}</a></h5>}
+        %{<h5><a href="#{document.url}" target="_new">View Result #{icon}</a></h5>},
+        '</section>'
       ].join("\n")
     end
 
